@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RssFeedWorkerV1_dbModelStoreContainer" CdmEntityContainer="RssFeedWorkerV1_dbEntities">
+    <EntitySetMapping Name="Articles">
+      <EntityTypeMapping TypeName="RssFeedWorkerV1_dbModel.Article">
+        <MappingFragment StoreEntitySet="Articles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UrlId" ColumnName="UrlId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Pubdate" ColumnName="Pubdate" />
+          <ScalarProperty Name="XmlArticle" ColumnName="XmlArticle" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrlsToCalls">
+      <EntityTypeMapping TypeName="RssFeedWorkerV1_dbModel.UrlsToCall">
+        <MappingFragment StoreEntitySet="UrlsToCall">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="TimeLastCalled" ColumnName="TimeLastCalled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

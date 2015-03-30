@@ -1,0 +1,63 @@
+﻿USE [master]
+GO
+/****** Object:  Database [RssFeedWorkerV1_db]    Script Date: 3/5/2015 2:25:01 PM ******/
+CREATE DATABASE [RssFeedWorkerV1_db]
+GO
+USE [RssFeedWorkerV1_db]
+GO
+/****** Object:  Table [dbo].[Articles]    Script Date: 3/5/2015 2:25:01 PM ******/
+SET ANSI_NULLS OFF
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Articles](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[UrlId] [int] NOT NULL,
+	[Title] [nvarchar](max) NOT NULL,
+	[Description] [varchar](max) NULL,
+	[Link] [nvarchar](max) NOT NULL,
+	[Pubdate] [datetime] NOT NULL,
+	[CreateDate] [datetime] NULL,
+	[HtmlArticle] [text] NOT NULL,
+ CONSTRAINT [PrimaryKey_0f2ee0c0-d7fa-44c5-9819-aac47985dbe6] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+)
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[UrlsToCall]    Script Date: 3/5/2015 2:25:01 PM ******/
+SET ANSI_NULLS OFF
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UrlsToCall](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[SiteName] [nvarchar](50) NOT NULL,
+	[Url] [nvarchar](max) NOT NULL,
+	[TimeLastCalled] [datetime] NOT NULL,
+	[LastUpdatedArticlePubTime] [datetime] NOT NULL,
+ CONSTRAINT [PrimaryKey_1711df75-1ddf-4e8d-a17d-ca7077ddb3de] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+)
+
+GO
+USE [master]
+GO
+ALTER DATABASE [RssFeedWorkerV1_db] SET  READ_WRITE 
+GO
+
+SET IDENTITY_INSERT [dbo].[UrlsToCall] ON 
+
+GO
+INSERT [dbo].[UrlsToCall] ([ID], [Name], [SiteName], [Url], [TimeLastCalled]) VALUES (1, N'YourMainUrlName', N'NameOfTheSite', N'http://www.URL.com/rss/frontpage', CAST(N'2015-03-05 14:22:12.413' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[UrlsToCall] OFF
+GO

@@ -35,7 +35,7 @@ namespace RssFeedApi.Controllers
 
         ////Possible improvement use a Cache:
         ////Cache for 10s on the server, inform the client that response is valid for 1s  (1 seconds)
-        //[CacheOutput(ClientTimeSpan = 1, ServerTimeSpan = 1)]
+        [CacheOutput(ClientTimeSpan = 1, ServerTimeSpan = 1)]
        
         public async Task<List<Article>> Get(string rssName, int page)
         {
